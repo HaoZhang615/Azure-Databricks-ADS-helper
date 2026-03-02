@@ -22,7 +22,7 @@ ADS Copilot is an AI agent that runs Architecture Design Sessions the way a seni
 
 Works like a senior SA pair: it knows when to push back on "we just need a data lake" and when to surface the three architectural patterns that actually fit the requirements. It looks up real-time Azure documentation via MCP servers so answers stay current.
 
-Ships with Azure Databricks and Microsoft Fabric domain skills out of the box. The pluggable skill architecture means you can swap in any domain — Microsoft Foundry, Contact Centers, SAP migrations — without touching the agent core. A landing page lets users pick their topic; the conversation UI adapts its branding per domain.
+Ships with three domain skills out of the box — Azure Databricks and Microsoft Fabric for data platform sessions, and Microsoft Foundry for AI platform sessions. The pluggable skill architecture means you can swap in any domain — Contact Centers, SAP migrations — without touching the agent core. A landing page lets users pick their topic; the conversation UI adapts its branding per domain.
 
 ## Key Features
 
@@ -35,7 +35,7 @@ Ships with Azure Databricks and Microsoft Fabric domain skills out of the box. T
 | 📊 | Live Mermaid diagram generation | 8+ architecture patterns per skill, rendered in browser |
 | 📄 | Session summary export | Download as Markdown or optimized PDF (JPEG-compressed, ~2-4 MB) with rendered diagrams |
 | 📧 | Email session summary | Send PDF summary via email (with automatic BCC) using Azure Logic App + Outlook |
-| 🔌 | Pluggable domain skills | Swap knowledge domains without code changes — ships with Databricks + Fabric |
+| 🔌 | Pluggable domain skills | Swap knowledge domains without code changes — ships with Databricks, Fabric + Foundry |
 | 🔍 | MCP server integration | Microsoft Learn real-time docs lookup |
 | 🏗️ | GitHub Copilot SDK backend | Agent loop with structured tool calls |
 | ☁️ | One-click Azure deployment | `azd up` + Bicep IaC |
@@ -158,15 +158,21 @@ skills/
     SKILL.md                # Skill manifest for Fabric
     references/             # Fabric patterns, migration playbooks, industry templates
     scripts/                # Mermaid diagram generator (8 patterns)
+  foundry-ads-session/      # Microsoft Foundry domain (AI platform)
+    SKILL.md                # Skill manifest for Foundry
+    references/             # Foundry patterns, deployment models, trade-offs
+    scripts/                # Mermaid diagram generator (8 AI-focused patterns)
 ```
 
 To add a new domain: create a skill directory under `skills/` with a `SKILL.md` manifest and `references/` docs, register it in the backend's `_SKILL_DIRECTORIES` dict in `copilot_agent.py`, and add a topic card to the frontend landing page. No changes to the agent core required.
 
-The frontend landing page (`/`) lets users choose their topic (Databricks or Fabric), then loads the conversation UI at `/session/[topic]` with per-topic branding and colors.
+The frontend landing page (`/`) lets users choose their topic (Foundry, Fabric, or Databricks), then loads the conversation UI at `/session/[topic]` with per-topic branding and colors.
 
 **Azure Databricks skill** — 8 architecture patterns (Medallion, Streaming, ML Platform, Data Mesh, Migration, DWH Replacement, IoT, Hybrid), industry-specific question banks, and source-system migration playbooks.
 
 **Microsoft Fabric skill** — 8 architecture patterns (Lakehouse, Data Warehouse, Real-Time Intelligence, Data Mesh, Migration, DWH Replacement, IoT, Hybrid), Fabric-native capacity/licensing guidance, and OneLake-centric design playbooks.
+
+**Microsoft Foundry skill** — 8 AI-focused architecture patterns (Baseline Chat, Multi-Agent, Batch Inference, PTU Gateway, Fine-Tuning, Multi-Project, AOAI Migration, Enterprise Landing Zone), version-aware guidance across Hub-based, Project V1, and Project V2 deployment models, and portal UI migration playbooks.
 
 ### How Skill Routing Works
 
@@ -176,7 +182,7 @@ Each session loads **only** the skill matching the user's chosen topic — the A
 2. The frontend opens a WebSocket with `?skill=fabric`
 3. The backend reads the `skill` query parameter and creates a `CopilotAgent(skill="fabric")`
 4. The agent looks up `_SKILL_DIRECTORIES["fabric"]` → `["./skills/fabric-ads-session"]` and passes those directories to the GitHub Copilot SDK
-5. The SDK loads **only** the Fabric `SKILL.md` manifest and `references/` docs — Databricks content is never loaded
+5. The SDK loads **only** the Fabric `SKILL.md` manifest and `references/` docs — Databricks and Foundry content is never loaded
 
 The domain-agnostic ADS methodology (conversation phases, voice rules, diagram conventions) lives in the backend system prompt and applies to all skills equally. Domain-specific knowledge — architecture patterns, migration playbooks, trade-off tables — comes exclusively from the loaded skill.
 
@@ -205,7 +211,11 @@ The domain-agnostic ADS methodology (conversation phases, voice rules, diagram c
 │   │   ├── SKILL.md
 │   │   ├── references/
 │   │   └── scripts/
-│   └── fabric-ads-session/       # Microsoft Fabric knowledge
+│   ├── fabric-ads-session/       # Microsoft Fabric knowledge
+│   │   ├── SKILL.md
+│   │   ├── references/
+│   │   └── scripts/
+│   └── foundry-ads-session/      # Microsoft Foundry knowledge (AI platform)
 │       ├── SKILL.md
 │       ├── references/
 │       └── scripts/
