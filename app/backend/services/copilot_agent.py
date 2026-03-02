@@ -202,6 +202,7 @@ _SYSTEM_PROMPT = (
 _SKILL_DIRECTORIES: dict[str, list[str]] = {
     "databricks": ["./architecture-diagramming", "./skills/databricks-ads-session"],
     "fabric": ["./architecture-diagramming", "./skills/fabric-ads-session"],
+    "foundry": ["./architecture-diagramming", "./skills/foundry-ads-session"],
 }
 _DEFAULT_SKILL = "databricks"
 _MCP_SERVERS: dict[str, MCPRemoteServerConfig] = {
