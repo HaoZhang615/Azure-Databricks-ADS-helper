@@ -11,8 +11,10 @@ Powered by the GitHub Copilot SDK + Azure AI Services — it listens, talks back
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FHaoZhang615%2Fads-copilot%2Fvoicelive-app%2Finfra%2Fmain.json)
 
 <!-- Replace with actual screenshot -->
-![ADS Copilot Demo](docs/demo.png)
-![ADS Copilot Demo 2](docs/demo2.png)
+![landing page](docs/demo0.png)
+![current architecture](docs/demo1.png)
+![future architecture](docs/demo2.png)
+![session summary](docs/demo3.png)
 
 ## What is ADS Copilot?
 

@@ -90,9 +90,8 @@ function FabricLogo({ className }: { className?: string }) {
 
 function FoundryLogo({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" className={className} aria-label="Microsoft Foundry" role="img">
-      <path fill="#7B2BF9" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm0 2c1.86 0 3.56.64 4.9 1.71L12 9.17 7.1 5.71A7.96 7.96 0 0 1 12 4Zm-6 8c0-1.39.36-2.69.98-3.83L12 11.5l-5.02 3.33A7.93 7.93 0 0 1 6 12Zm6 8a7.96 7.96 0 0 1-4.9-1.71L12 14.83l4.9 3.46A7.96 7.96 0 0 1 12 20Zm5.02-5.17L12 11.5l5.02-3.33c.62 1.14.98 2.44.98 3.83s-.36 2.69-.98 3.83Z"/>
-    </svg>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src="/foundry-logo.png" alt="Microsoft Foundry" className={className} role="img" aria-label="Microsoft Foundry" />
   );
 }
 
