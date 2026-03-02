@@ -4,7 +4,7 @@ import { use } from "react";
 import { redirect } from "next/navigation";
 import { ChatInterface } from "@/components/ChatInterface";
 
-const VALID_TOPICS = ["databricks", "fabric"] as const;
+const VALID_TOPICS = ["databricks", "fabric", "foundry"] as const;
 type TopicId = (typeof VALID_TOPICS)[number];
 
 function isValidTopic(value: string): value is TopicId {

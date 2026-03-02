@@ -9,7 +9,7 @@ import { AvatarPanel } from "@/components/AvatarPanel";
 import { SessionSummaryModal } from "@/components/SessionSummaryModal";
 import type { SessionState } from "@/lib/ws-protocol";
 
-type TopicId = "databricks" | "fabric";
+type TopicId = "databricks" | "fabric" | "foundry";
 
 const STATE_LABELS: Record<SessionState, string> = {
   idle: "Ready",
@@ -42,6 +42,12 @@ const TOPIC_CONFIG: Record<TopicId, {
     subtitle: "Microsoft Fabric",
     liteDescription: "Text-based AI assistant for designing your Microsoft Fabric solution architecture. Type your message below to begin.",
     fullDescription: "Voice-enabled AI assistant for designing your Microsoft Fabric solution architecture. Start by speaking or typing below.",
+  },
+  foundry: {
+    label: "Microsoft Foundry",
+    subtitle: "Microsoft Foundry",
+    liteDescription: "Text-based AI assistant for designing your Microsoft Foundry AI solution architecture. Type your message below to begin.",
+    fullDescription: "Voice-enabled AI assistant for designing your Microsoft Foundry AI solution architecture. Start by speaking or typing below.",
   },
 };
 
@@ -82,8 +88,16 @@ function FabricLogo({ className }: { className?: string }) {
   );
 }
 
+function FoundryLogo({ className }: { className?: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src="/foundry-logo.png" alt="Microsoft Foundry" className={className} role="img" aria-label="Microsoft Foundry" />
+  );
+}
+
 /** Returns the topic-appropriate secondary logo component. */
 function TopicLogo({ topic, className }: { topic: TopicId; className?: string }) {
+  if (topic === "foundry") return <FoundryLogo className={className} />;
   if (topic === "fabric") return <FabricLogo className={className} />;
   return <DatabricksLogo className={className} />;
 }

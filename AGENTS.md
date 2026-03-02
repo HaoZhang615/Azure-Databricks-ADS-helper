@@ -4,11 +4,11 @@
 
 ## Repository Overview
 
-**ADS Copilot** — voice-enabled AI copilot for Architecture Design Sessions. FastAPI/WebSocket backend + Next.js 15 frontend. Ships with two domain skills: Azure Databricks and Microsoft Fabric.
+**ADS Copilot** — voice-enabled AI copilot for Architecture Design Sessions. FastAPI/WebSocket backend + Next.js 15 frontend. Ships with three domain skills: Azure Databricks, Microsoft Fabric, and Microsoft Foundry.
 
 - **Backend**: `app/backend/` — FastAPI, async/await, Copilot SDK agent, WebSocket endpoint
 - **Frontend**: `app/frontend/` — Next.js 15 / React 19 / Tailwind CSS 4, App Router
-- **Skills**: `skills/databricks-ads-session/`, `skills/fabric-ads-session/` — domain knowledge + Mermaid generators
+- **Skills**: `skills/databricks-ads-session/`, `skills/fabric-ads-session/`, `skills/foundry-ads-session/` — domain knowledge + Mermaid generators
 - **Mirror skills**: `.github/skills/` — duplicates for GitHub Copilot discovery (**must stay in sync**)
 - **Infra**: `infra/` — Azure Bicep IaC
 
@@ -46,6 +46,8 @@ azd auth login && azd up                                      # Azure deployment
 python skills/databricks-ads-session/scripts/generate_architecture.py --list              # List patterns
 python skills/databricks-ads-session/scripts/generate_architecture.py --pattern medallion  # Generate one
 python skills/fabric-ads-session/scripts/generate_architecture.py --list                   # Fabric patterns
+python skills/foundry-ads-session/scripts/generate_architecture.py --list                  # Foundry patterns
+python skills/foundry-ads-session/scripts/generate_architecture.py --pattern baseline-chat  # Generate one
 ```
 
 ### Smoke Tests (Manual)
@@ -62,6 +64,11 @@ done
 # All 8 Fabric patterns
 for p in lakehouse warehouse realtime data-mesh migration dwh-replacement iot hybrid; do
   python skills/fabric-ads-session/scripts/generate_architecture.py --pattern $p
+done
+
+# All 8 Foundry patterns
+for p in baseline-chat multi-agent batch-inference ptu-gateway fine-tuning multi-project aoai-migration enterprise-landing-zone; do
+  python skills/foundry-ads-session/scripts/generate_architecture.py --pattern $p
 done
 ```
 

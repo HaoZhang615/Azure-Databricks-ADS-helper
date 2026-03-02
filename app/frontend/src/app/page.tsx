@@ -99,16 +99,23 @@ function FabricLogo({ className }: { className?: string }) {
   );
 }
 
+function FoundryLogo({ className }: { className?: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src="/foundry-logo.png" alt="Microsoft Foundry" className={className} role="img" aria-label="Microsoft Foundry" />
+  );
+}
+
 const TOPICS = [
   {
-    id: "databricks",
-    name: "Azure Databricks",
+    id: "foundry",
+    name: "Microsoft Foundry",
     description:
-      "Design a lakehouse, streaming pipeline, ML platform, or data mesh on Azure Databricks. Covers Medallion architecture, Unity Catalog governance, and migration playbooks.",
-    accent: "#FF3621",
-    gradientFrom: "#FF3621",
-    gradientTo: "#e02e1a",
-    Logo: DatabricksLogo,
+      "Design AI applications on Microsoft Foundry. Covers RAG chat, multi-agent orchestration, batch inference, PTU gateways, fine-tuning, and enterprise landing zones.",
+    accent: "#7B2BF9",
+    gradientFrom: "#7B2BF9",
+    gradientTo: "#6A24D9",
+    Logo: FoundryLogo,
   },
   {
     id: "fabric",
@@ -119,6 +126,16 @@ const TOPICS = [
     gradientFrom: "#008575",
     gradientTo: "#006b5e",
     Logo: FabricLogo,
+  },
+  {
+    id: "databricks",
+    name: "Azure Databricks",
+    description:
+      "Design a lakehouse, streaming pipeline, ML platform, or data mesh on Azure Databricks. Covers Medallion architecture, Unity Catalog governance, and migration playbooks.",
+    accent: "#FF3621",
+    gradientFrom: "#FF3621",
+    gradientTo: "#e02e1a",
+    Logo: DatabricksLogo,
   },
 ] as const;
 
@@ -143,7 +160,7 @@ export default function LandingPage() {
       </div>
 
       {/* Topic cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full">
         {TOPICS.map((topic) => (
           <Link
             key={topic.id}

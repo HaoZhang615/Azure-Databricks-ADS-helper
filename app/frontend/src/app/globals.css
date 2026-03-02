@@ -30,6 +30,14 @@
   --topic-gradient-end: #008575;
 }
 
+[data-topic="foundry"] {
+  --topic-accent: #7B2BF9;
+  --topic-accent-hover: #6A24D9;
+  --topic-accent-light: #EDE5FE;
+  --topic-gradient-start: #7B2BF9;
+  --topic-gradient-end: #0078D4;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
