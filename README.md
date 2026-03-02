@@ -20,7 +20,7 @@ ADS Copilot is an AI agent that runs Architecture Design Sessions the way a seni
 
 Works like a senior SA pair: it knows when to push back on "we just need a data lake" and when to surface the three architectural patterns that actually fit the requirements. It looks up real-time Azure documentation via MCP servers so answers stay current.
 
-Ships with Azure Databricks and Microsoft Fabric domain skills out of the box. The pluggable skill architecture means you can swap in any domain — Azure AI Foundry, Contact Centers, SAP migrations — without touching the agent core. A landing page lets users pick their topic; the conversation UI adapts its branding per domain.
+Ships with Azure Databricks and Microsoft Fabric domain skills out of the box. The pluggable skill architecture means you can swap in any domain — Microsoft Foundry, Contact Centers, SAP migrations — without touching the agent core. A landing page lets users pick their topic; the conversation UI adapts its branding per domain.
 
 ## Key Features
 

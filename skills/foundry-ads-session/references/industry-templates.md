@@ -177,4 +177,4 @@ Industry-specific starting configurations for common Foundry ADS scenarios. Use 
 
 ---
 
-*Last updated: March 2026. Sources: Azure AI Foundry docs, Azure Architecture Center.*
+*Last updated: March 2026. Sources: Microsoft Foundry docs, Azure Architecture Center.*

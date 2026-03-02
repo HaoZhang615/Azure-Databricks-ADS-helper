@@ -1,17 +1,17 @@
 ---
 name: foundry-ads-session
-description: Conduct Microsoft Foundry (Azure AI Foundry) Architecture Design Sessions (ADS). Orchestrate a structured multi-turn conversation to gather solution requirements across any AI/ML use case (enterprise chat, agentic workflows, multi-agent orchestration, RAG, fine-tuning, batch inference, real-time scoring, etc.), then generate a Foundry-centric architecture diagram. Use when the user wants to (1) design a Microsoft Foundry solution, (2) run an architecture design session for an AI/ML platform, (3) scope a Foundry migration or greenfield AI project, (4) gather requirements for an enterprise AI platform, or (5) generate a Microsoft Foundry architecture diagram from requirements.
+description: Conduct Microsoft Foundry (Microsoft Foundry) Architecture Design Sessions (ADS). Orchestrate a structured multi-turn conversation to gather solution requirements across any AI/ML use case (enterprise chat, agentic workflows, multi-agent orchestration, RAG, fine-tuning, batch inference, real-time scoring, etc.), then generate a Foundry-centric architecture diagram. Use when the user wants to (1) design a Microsoft Foundry solution, (2) run an architecture design session for an AI/ML platform, (3) scope a Foundry migration or greenfield AI project, (4) gather requirements for an enterprise AI platform, or (5) generate a Microsoft Foundry architecture diagram from requirements.
 license: MIT
 compatibility: Works with Claude Code, GitHub Copilot, VS Code, Cursor, and any Agent Skills compatible tool. PNG export requires Node.js (npx @mermaid-js/mermaid-cli). Fallback is Mermaid in Markdown preview.
 metadata:
   author: community
   version: "1.0"
-  domain: Microsoft Foundry (Azure AI Foundry)
+  domain: Microsoft Foundry (Microsoft Foundry)
 ---
 
 # Microsoft Foundry ADS Session
 
-This skill provides **domain-specific knowledge for Microsoft Foundry (Azure AI Foundry)** to be used within an Architecture Design Session. The ADS methodology (persona, pacing, session structure, decision narration, trade-off framework, self-critique) is defined in the runtime system prompt. This skill supplies the Foundry-specific questions, patterns, components, and references that the methodology operates on.
+This skill provides **domain-specific knowledge for Microsoft Foundry (Microsoft Foundry)** to be used within an Architecture Design Session. The ADS methodology (persona, pacing, session structure, decision narration, trade-off framework, self-critique) is defined in the runtime system prompt. This skill supplies the Foundry-specific questions, patterns, components, and references that the methodology operates on.
 
 ## Domain: Microsoft Foundry
 
@@ -142,7 +142,7 @@ For rendering, Architecture Recap format, and iteration workflow, defer to the a
 
 ## Optional: Workload Profiling
 
-These questions are **not a mandatory phase** — the customer may or may not raise workload-specific topics during the session. Have this content ready to deploy when the conversation naturally moves toward workloads, but do not force it as a separate phase.
+These questions are **not a mandatory phase** ï¿½ the customer may or may not raise workload-specific topics during the session. Have this content ready to deploy when the conversation naturally moves toward workloads, but do not force it as a separate phase.
 
 If the customer discusses workloads, ask about:
 - Inference workloads: expected TPM, peak RPM, latency SLA (P50/P99), synchronous vs. async

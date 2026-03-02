@@ -21,7 +21,7 @@ Cannot generate a diagram without these.
 | Item | Why It Matters | Default If Forced | Probing Question |
 |------|---------------|-------------------|------------------|
 | **Primary AI use case** | Determines architecture pattern | None - must have | What AI capability are you building? |
-| **Deployment model** | Feature set differs: new Foundry Projects has Foundry IQ; Hub-based has Prompt Flow | Assume new Foundry Projects unless Prompt Flow mentioned | Are you starting fresh, or do you have existing Azure AI Foundry resources? Do you use Prompt Flow today? |
+| **Deployment model** | Feature set differs: new Foundry Projects has Foundry IQ; Hub-based has Prompt Flow | Assume new Foundry Projects unless Prompt Flow mentioned | Are you starting fresh, or do you have existing Microsoft Foundry resources? Do you use Prompt Flow today? |
 | **Model selection** | Determines endpoint type, pricing, availability | GPT-4o GlobalStandard PAYG | Which model - GPT-4o, o3, or another? OpenAI only, or open-source like Llama or Phi? |
 | **Network posture** | Determines private endpoints and VNet requirements | Public endpoints | Does your security team require all traffic on a private network? |
 | **Agent setup type (agents only)** | Standard = customer-owned Cosmos DB + Storage + AI Search. Basic = Microsoft-managed. | Basic Agent Setup | Does conversation history need to be stored in your own subscription for compliance? |

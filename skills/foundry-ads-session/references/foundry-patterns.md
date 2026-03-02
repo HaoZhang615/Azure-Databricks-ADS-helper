@@ -683,4 +683,4 @@ Use this table at the start of an ADS session to narrow to the right pattern:
 
 ---
 
-*Last updated: March 2026. Sources: Azure AI Foundry docs, azure-ai-projects SDK v1.0.0 / v2.0.0b4, Azure Architecture Center.*
+*Last updated: March 2026. Sources: Microsoft Foundry docs, azure-ai-projects SDK v1.0.0 / v2.0.0b4, Azure Architecture Center.*

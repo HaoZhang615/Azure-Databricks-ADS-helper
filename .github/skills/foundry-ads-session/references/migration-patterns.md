@@ -160,4 +160,4 @@ These apply to all migration paths above.
 
 ---
 
-*Last updated: March 2026. Sources: Azure AI Foundry docs, Azure Architecture Center, Azure Well-Architected Framework.*
+*Last updated: March 2026. Sources: Microsoft Foundry docs, Azure Architecture Center, Azure Well-Architected Framework.*

@@ -320,4 +320,4 @@ Use these to test resilience thinking during the ADS conversation. When a custom
 
 ---
 
-*Last updated: March 2026. Sources: Azure AI Foundry docs, Azure Architecture Center, Azure Well-Architected Framework.*
+*Last updated: March 2026. Sources: Microsoft Foundry docs, Azure Architecture Center, Azure Well-Architected Framework.*

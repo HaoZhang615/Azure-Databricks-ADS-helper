@@ -48,7 +48,7 @@ def generate_baseline_chat(params: Dict[str, Any]) -> str:
 
           AGW([Application Gateway])
 
-          subgraph FOUNDRY["Azure AI Foundry - AI Project"]
+          subgraph FOUNDRY["Microsoft Foundry - AI Project"]
             AGENT[Agent Service]
             LLM[Model Deployment - GPT-4o]
             SRCH[(Azure AI Search - Vector Index)]
@@ -294,7 +294,7 @@ def generate_multi_project(params: Dict[str, Any]) -> str:
     return textwrap.dedent(f"""\n        %% {name}
         flowchart LR
           subgraph PLATFORM["Central Platform Team"]
-            FND[Azure AI Foundry Hub]
+            FND[Microsoft Foundry Hub]
             SRCH[(Azure AI Search - Shared Index)]
             COSMOS[(Cosmos DB - Shared Conversation State)]
             POLICY(Azure Policy - Allowed Models and Regions)
@@ -319,7 +319,7 @@ def generate_multi_project(params: Dict[str, Any]) -> str:
 
 
 def generate_aoai_migration(params: Dict[str, Any]) -> str:
-    """AOAI to Foundry Migration - phased migration path from Azure OpenAI Service to Azure AI Foundry."""
+    """AOAI to Foundry Migration - phased migration path from Azure OpenAI Service to Microsoft Foundry."""
     name = params.get("name", "AOAI to Foundry Migration")
 
     return textwrap.dedent(f"""\n        %% {name}
@@ -341,7 +341,7 @@ def generate_aoai_migration(params: Dict[str, Any]) -> str:
             PH7[Phase 7 - Cutover and Decommission AOAI]
           end
 
-          subgraph AFTER["After - Azure AI Foundry"]
+          subgraph AFTER["After - Microsoft Foundry"]
             FND_RES[services.ai.azure.com Resource]
             PRJ[AI Project]
             FND_DEP[Deployment - gpt-4o in Foundry]
@@ -411,7 +411,7 @@ def generate_enterprise_landing_zone(params: Dict[str, Any]) -> str:
             end
           end
 
-          subgraph FDR_RES["Azure AI Foundry - Private"]
+          subgraph FDR_RES["Microsoft Foundry - Private"]
             HUB_RES[Foundry Hub - No Public Access]
             PRJ[AI Project]
             AGENT[Agent Service]
