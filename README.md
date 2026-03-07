@@ -10,6 +10,10 @@ Powered by the GitHub Copilot SDK + Azure AI Services — it listens, talks back
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FHaoZhang615%2Fads-copilot%2Fvoicelive-app%2Finfra%2Fmain.json)
 
+## Sizzle Video
+[![Watch the demo](https://img.youtube.com/vi/BPmu_CJH11g/0.jpg)](https://youtu.be/BPmu_CJH11g?si=IS-ewc4-J0PKX0Z1)
+
+
 <!-- Replace with actual screenshot -->
 ![landing page](docs/demo0.png)
 ![current architecture](docs/demo1.png)
@@ -43,47 +47,7 @@ Ships with three domain skills out of the box — Azure Databricks and Microsoft
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    subgraph CLIENT["Browser"]
-        MIC["🎙️ Microphone"]
-        AVATAR["🧑‍💼 Avatar Panel\n(WebRTC)"]
-        CHAT["💬 Chat UI"]
-    end
-
-    subgraph BACKEND["FastAPI Backend"]
-        WS["WebSocket\nEndpoint"]
-        AGENT["Copilot Agent\n(GitHub Copilot SDK)"]
-        SKILL["Skill Loader\n(SKILL.md)"]
-    end
-
-    subgraph AZURE_AI["Azure AI Services"]
-        VL["Azure VoiceLive\n(Real-time STT)"]
-        TTS["Azure Speech\n(TTS)"]
-        AV["Azure Speech Avatar\n(WebRTC stream)"]
-    end
-
-    subgraph MCP["MCP Servers"]
-        MSLEARN["Microsoft Learn\nDocs"]
-    end
-
-    subgraph INFRA["Azure Container Apps"]
-        BE_APP["Backend Container"]
-        FE_APP["Frontend Container"]
-        KV["Key Vault"]
-    end
-
-    MIC -->|"audio stream"| WS
-    WS -->|"audio"| VL
-    VL -->|"transcript"| AGENT
-    SKILL -->|"domain knowledge"| AGENT
-    AGENT -->|"tool call"| MSLEARN
-    MSLEARN -->|"docs"| AGENT
-    AGENT -->|"response text"| TTS
-    TTS -->|"audio"| AVATAR
-    AGENT -->|"Mermaid diagram"| CHAT
-    AV -->|"WebRTC"| AVATAR
-```
+![architecture](assets/ADS-Copilot-architecture.png)
 
 ## Quick Start
 
