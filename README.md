@@ -47,7 +47,7 @@ Ships with three domain skills out of the box — Azure Databricks and Microsoft
 
 ## Architecture
 
-![architecture](assets/ADS-Copilot-architecture.png)
+![architecture](assets/ADS-Copilot-Architecture.png)
 
 ## Quick Start
 
